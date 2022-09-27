@@ -27,7 +27,7 @@ class Simulation:
 
     def run(self):
         with Pool(self.pool) as p:
-            winners = p.map(self.exercise, (n for n in range(self.population)))
+            winners = p.map(self.exercise, iter(range(self.population)))
 
         self.stats = Counter(winners)
 
